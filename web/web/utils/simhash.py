@@ -1,3 +1,4 @@
+import os
 import jieba
 import jieba.analyse
 import numpy as np
@@ -12,8 +13,9 @@ class simhash:
         return str(self.simhash)
 
     def simhash(self, content):
+        dir = os.path.dirname(__file__)
         seg = jieba.cut(content)
-        jieba.analyse.set_stop_words('stopword.txt')
+        jieba.analyse.set_stop_words(os.path.join(dir, './stop_words.txt'))
         keyWord = jieba.analyse.extract_tags('|'.join(seg), topK = 20, withWeight = True, allowPOS = ())
         keyList = []
 
@@ -32,7 +34,7 @@ class simhash:
         list1 = np.sum(np.array(keyList), axis=0)
 
         if(keyList == []):
-            return'00'
+            return '00'
 
         simhash = ''
 

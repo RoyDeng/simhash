@@ -6,4 +6,4 @@ RUN pip install -r pip.txt
 ADD . /app/
 WORKDIR /app/
 ENV PYTHONPATH /app/utils
-RUN python manage.py collectstatic --noinput
+# RUN python manage.py collectstatic --noinput

@@ -1,5 +1,9 @@
-#!/usr/bin/env python
-from web import app
+from flask_script import Manager
+from web.app import create_app
 
-if __name__ == '__main__':
-    app.run()
+app = create_app('development')
+
+manager = Manager(app)
+
+if __name__ == "__main__":
+    manager.run()

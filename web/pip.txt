@@ -1,3 +1,8 @@
 flask
-jieba
-numpy
+flask-io
+flask-migrate
+flask-script
+flask-sqlalchemy
+sqlalchemy-utils
+psycopg2
+uwsgi
